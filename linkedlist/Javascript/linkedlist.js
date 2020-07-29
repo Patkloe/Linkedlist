@@ -9,24 +9,25 @@ class Linkedlist{
   this.head = null;
   this.size = 0;
  }
-add(element){
- var newnode = new Node(element);
- var current;
- if(this.head === null){
-    this.head = newnode;
-    console.log("head of the list: " + " " + this.head.element);
- }
- else{
-    current = this.head;
-    while(current.next){
-     current = current.next;
+  add(element){
+   var newnode = new Node(element);
+   var navigate;
+   if(this.head === null){
+      this.head = newnode;
+      console.log("Head of the list : " + " " + this.head.element);
+   }
+   else{
+    navigate = this.head;
+    while(navigate.next){
+          navigate = navigate.next;
     }
-     current.next = newnode;
-     console.log("new list element :" + " " + newnode.element);
- }
-    this.size++;
-}
-} // end class linkedlist
+          navigate.next = newnode;
+          console.log("new node added : " + " " + navigate.next.element + "previous :" + " " + navigate.element);
+   }
+   this.size++;
+   console.log("Number of elements : " + " " +this.size);
+  }
+}// end class Linkedlist
 var test = new Linkedlist();
 test.add(1);
 test.add(2);
