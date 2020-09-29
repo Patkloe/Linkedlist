@@ -1,52 +1,32 @@
-class Node{
- constructor(element){
-  this.element = element;
+class Noeud{
+ constructor(data){
+  this.data = data;
   this.next = null;
  }
 }
-class Linkedlist{
+class Listelink{
  constructor(){
-  this.head = null;
-  this.size = 0;
+  this.root = null;
  }
- add(element){
-  var newnode = new Node(element);
-  var current;
-  if(this.head === null){
-     this.head = newnode;
-     console.log("this is the head of the list : " + " " + this.head.element);
+ addnode(data){
+  var newmaillon = new Noeud(data);
+  var curr;
+  if(this.root === null){
+     this.root = newmaillon;
+ console.log("list root : " + " " + " from newmaillon data" + " " +newmaillon.data + " " + "from this.root " + " " + this.root.data);
   }
-   else{
-       current = this.head;
-       while(current.next){
-       current = current.next;
-       }
-       current.next = newnode;
-       console.log(" new element in the list : " + " " + current.next.element + " " + "previous : " + " " + current.element);
-   }
-   this.size++;
-   console.log(" number of elements in the list :" + " " +this.size);   
- }// end add method
- addElementAt(element,index){
-  if(index > 0 && index > this.size)
-   return false;
-  else{
-    if( index == 0){
-      var newnode = new Node(element);
-      newnode.next = this.head;
-      this.head = newnode;
-      console.log(" Is the new head of the list :" + " " + this.head.element);
-      this.size++;
-      console.log(" New size of the list : " + " " + this.size);
-    }
+  else{ //we navigate on the list to add the node
+     curr = this.root;
+     while(curr.next){
+           curr = curr.next;
+     }
+           curr.next = newmaillon;
+ console.log("list root : " + " " + " from newmaillon data" + " " +newmaillon.data + " " + "parent " + " " + curr.data);    
   }
  }
-} //end class linkedlist
-var test = new Linkedlist();
-test.add(1);
-test.add(2);
-test.add(3);
-test.add(4);
-test.add(5);
-test.addElementAt(8,0);
-
+}//  fin class addnode
+var tab = [1,2,3,4,5,6,7,8,9];
+var test = new Listelink();
+    console.log("List linked built : ");
+ for(var i = 0; i < tab.length; i++)
+    test.addnode(tab[i]);
